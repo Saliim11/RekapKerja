@@ -8,9 +8,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.rekapkerja.R;
-import com.example.rekapkerja.activity.staff.ChartFragment;
-import com.example.rekapkerja.activity.staff.HomeFragment;
-import com.example.rekapkerja.activity.staff.SettingsFragment;
+import com.example.rekapkerja.activity.staff.chart.ChartFragment;
+import com.example.rekapkerja.activity.staff.home.HomeFragment;
+import com.example.rekapkerja.activity.staff.setting.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {

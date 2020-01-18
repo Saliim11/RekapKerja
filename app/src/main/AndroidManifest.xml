@@ -12,9 +12,9 @@
         <activity android:name=".activity.admin.adminhome.AdminSettingsFragment"></activity>
         <activity android:name=".activity.admin.adminhome.StaffListFragment" />
         <activity android:name=".activity.admin.adminhome.AdminHomeFragment" />
-        <activity android:name=".activity.staff.SettingsFragment" />
-        <activity android:name=".activity.staff.ChartFragment" />
-        <activity android:name=".activity.staff.HomeFragment" />
+        <activity android:name=".activity.staff.setting.SettingsFragment" />
+        <activity android:name=".activity.staff.chart.ChartFragment" />
+        <activity android:name=".activity.staff.home.HomeFragment" />
         <activity android:name=".activity.admin.AdminActivity" />
         <activity android:name=".activity.auth.RegisterActivity" />
         <activity android:name=".activity.auth.LoginActivity">

@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (user.getResult().equalsIgnoreCase("1")) {
                     String message = response.body().getMsg();
-                    Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
 
                     leveluser = user.getUser().getLevelUser();
 

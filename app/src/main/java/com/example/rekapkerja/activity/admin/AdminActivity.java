@@ -11,9 +11,7 @@ import com.example.rekapkerja.R;
 import com.example.rekapkerja.activity.admin.adminhome.AdminHomeFragment;
 import com.example.rekapkerja.activity.admin.adminhome.AdminSettingsFragment;
 import com.example.rekapkerja.activity.admin.adminhome.StaffListFragment;
-import com.example.rekapkerja.activity.staff.ChartFragment;
-import com.example.rekapkerja.activity.staff.HomeFragment;
-import com.example.rekapkerja.activity.staff.SettingsFragment;
+import com.example.rekapkerja.activity.staff.home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class AdminActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {

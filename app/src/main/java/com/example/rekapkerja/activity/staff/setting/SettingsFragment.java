@@ -1,4 +1,4 @@
-package com.example.rekapkerja.activity.staff;
+package com.example.rekapkerja.activity.staff.setting;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,14 +11,14 @@ import android.view.ViewGroup;
 
 import com.example.rekapkerja.R;
 
-public class HomeFragment extends Fragment {
+public class SettingsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setHasOptionsMenu(true);
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.home_fragment, container, false);
+        return inflater.inflate(R.layout.settings_fragment, container, false);
     }
 
     @Override
