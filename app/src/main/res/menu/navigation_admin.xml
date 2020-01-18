@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_admin"
+        android:id="@+id/navigation_admin_home"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="Home"/>
 
@@ -10,10 +10,5 @@
         android:id="@+id/navigation_staff_list_admin"
         android:icon="@drawable/ic_face_black_24dp"
         android:title="Staff List"/>
-
-    <item
-        android:id="@+id/navigation_setting_admin"
-        android:icon="@drawable/ic_settings_black_24dp"
-        android:title="Settings" />
 
 </menu>
