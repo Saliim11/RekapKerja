@@ -1,4 +1,4 @@
-package com.example.rekapkerja.activity.staff.setting;
+package com.example.rekapkerja.activity.staff.history;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,18 +11,21 @@ import android.view.ViewGroup;
 
 import com.example.rekapkerja.R;
 
-public class SettingsFragment extends Fragment {
+public class HistoryFragment extends Fragment {
 
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.settings_fragment, container, false);
+        return inflater.inflate(R.layout.history_fragment, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
     }
 }

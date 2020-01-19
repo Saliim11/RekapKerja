@@ -69,9 +69,7 @@ public class AdminActivity extends AppCompatActivity implements BottomNavigation
             case R.id.item1:
                 startActivity(new Intent(AdminActivity.this, PengaturanAdminActivity.class));
                 return true;
-            case R.id.item2:
-                startActivity(new Intent(AdminActivity.this, TentangAdminActivity.class));
-                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }

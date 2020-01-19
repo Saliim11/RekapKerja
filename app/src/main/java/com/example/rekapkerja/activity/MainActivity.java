@@ -4,13 +4,19 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.example.rekapkerja.R;
+import com.example.rekapkerja.activity.admin.AdminActivity;
+import com.example.rekapkerja.activity.admin.adminmenu.PengaturanAdminActivity;
+import com.example.rekapkerja.activity.admin.adminmenu.TentangAdminActivity;
 import com.example.rekapkerja.activity.staff.chart.ChartFragment;
+import com.example.rekapkerja.activity.staff.history.HistoryFragment;
 import com.example.rekapkerja.activity.staff.home.HomeFragment;
-import com.example.rekapkerja.activity.staff.setting.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -25,6 +31,23 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         BottomNavigationView navigationView = findViewById(R.id.home_navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.admin_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.item1:
+                startActivity(new Intent(MainActivity.this, PengaturanAdminActivity.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private boolean loadFragment(Fragment fragment) {
@@ -48,10 +71,12 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             case R.id.navigation_chart_home:
                 fragment = new ChartFragment();
                 break;
-            case R.id.navigation_setting_home:
-                fragment = new SettingsFragment();
+            case R.id.navigation_history:
+                fragment = new HistoryFragment();
                 break;
         }
         return loadFragment(fragment);
     }
+
+
 }

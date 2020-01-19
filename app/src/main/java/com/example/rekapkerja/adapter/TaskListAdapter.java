@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rekapkerja.R;
-import com.example.rekapkerja.model.getlistkerjaan.ResponseListKerjaan;
+import com.example.rekapkerja.model.listKerjaan.ResponseListKerjaan;
 
 import java.util.List;
 

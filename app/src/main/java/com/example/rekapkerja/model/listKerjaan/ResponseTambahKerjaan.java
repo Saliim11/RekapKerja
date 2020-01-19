@@ -1,8 +1,8 @@
-package com.example.rekapkerja.model.tambahtask;
+package com.example.rekapkerja.model.listKerjaan;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ResponseTambahTask{
+public class ResponseTambahKerjaan {
 
 	@SerializedName("poin_kerjaan")
 	private String poinKerjaan;

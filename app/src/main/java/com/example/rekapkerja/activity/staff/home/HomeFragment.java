@@ -16,12 +16,16 @@ import android.widget.Toast;
 
 import com.example.rekapkerja.R;
 import com.example.rekapkerja.activity.auth.LoginActivity;
+import com.example.rekapkerja.adapter.ListKerjaanAdapter;
 import com.example.rekapkerja.model.listKerjaan.ResponseListKerjaanStaff;
 import com.example.rekapkerja.network.ApiClient;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,6 +37,8 @@ public class HomeFragment extends Fragment {
 
     public RecyclerView recyclerKerjaanStaff;
     TextView txtLevel, txtHari;
+
+    String harian, hari;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,20 +54,40 @@ public class HomeFragment extends Fragment {
 
         SimpleDateFormat day = new SimpleDateFormat("EEEE");
         Date d = new Date();
-        String hari = day.format(d);
+        hari = day.format(d);
         Log.d("day", hari);
+
+        translate();
 
         recyclerKerjaanStaff = view.findViewById(R.id.rc_kerjaan);
         txtLevel = view.findViewById(R.id.txt_level_kerjaan);
         txtHari = view.findViewById(R.id.txt_hari_kerjaan);
 
-        String level = LoginActivity.leveluser;
+        String level = LoginActivity.levelUser;
         Log.d("levelStaff", level);
 
         txtLevel.setText(level);
-        txtHari.setText(hari);
+        txtHari.setText(harian);
 
         getKerjaan(level, hari);
+    }
+
+    private void translate() {
+        if (hari.equals("Sunday")){
+            harian = "Minggu";
+        }else if (hari.equals("Monday")){
+            harian = "Senin";
+        }else if (hari.equals("Tuesday")){
+            harian = "Selasa";
+        }else if (hari.equals("Wednesday")){
+            harian = "Rabu";
+        }else if (hari.equals("Thursday")){
+            harian = "Kamis";
+        }else if (hari.equals("Friday")){
+            harian = "Jum'at";
+        }else if (hari.equals("Saturday")){
+            harian = "Sabtu";
+        }
     }
 
     private void getKerjaan(String level, String hari) {

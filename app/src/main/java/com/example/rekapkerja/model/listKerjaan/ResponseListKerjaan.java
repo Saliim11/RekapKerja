@@ -1,4 +1,4 @@
-package com.example.rekapkerja.model.getlistkerjaan;
+package com.example.rekapkerja.model.listKerjaan;
 
 import com.google.gson.annotations.SerializedName;
 

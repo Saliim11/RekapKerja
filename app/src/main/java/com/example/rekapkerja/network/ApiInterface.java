@@ -1,13 +1,12 @@
 package com.example.rekapkerja.network;
 
+import com.example.rekapkerja.model.kerjaanSelesai.ResponseTambahSelesai;
 import com.example.rekapkerja.model.listKerjaan.ResponseListKerjaanStaff;
-import com.example.rekapkerja.model.getlistkerjaan.ResponseListKerjaan;
+import com.example.rekapkerja.model.listKerjaan.ResponseListKerjaan;
 import com.example.rekapkerja.model.getuser.ResponseGetUsers;
 import com.example.rekapkerja.model.login.ResponseLogin;
 import com.example.rekapkerja.model.register.ResponseRegister;
-import com.example.rekapkerja.model.tambahtask.ResponseTambahTask;
-
-import java.util.ArrayList;
+import com.example.rekapkerja.model.listKerjaan.ResponseTambahKerjaan;
 
 import java.util.ArrayList;
 
@@ -35,24 +34,32 @@ public interface ApiInterface {
                                             @Field("level_user") String level_user,
                                             @Field("kelas_user") String kelas_user);
 
+    // TODO Tambah Kerjaan
+    @FormUrlEncoded
+    @POST("list_kerjaan/create_kerjaan.php")
+    Call<ResponseTambahKerjaan> responseTambahKerjaan(@Field("nama_kerjaan") String nama_kerjaan,
+                                                      @Field("level_kerjaan") String level_kerjaan,
+                                                      @Field("hari_kerjaan") String hari_kerjaan,
+                                                      @Field("waktu_kerjaan") String waktu_kerjaan,
+                                                      @Field("poin_kerjaan") String poin_kerjaan);
+
+    // TODO Tambah Selesai
+    @FormUrlEncoded
+    @POST("kerjaan_selesai/create_selesai.php")
+    Call<ResponseTambahSelesai> responseTambahSelesai(@Field("id_user") String id_user,
+                                                      @Field("kerjaan_selesai") String kerjaan_selesai,
+                                                      @Field("poin_selesai") String poin_selesai);
+
     // TODO Get List Kerjaan by Level
     @GET("list_kerjaan/get_kerjaan_by_level.php")
     Call<ArrayList<ResponseListKerjaanStaff>> responseListKerjaan(@Query("level_kerjaan") String level_kerjaan,
                                                                   @Query("hari_kerjaan") String hari_kerjaan);
-    // TODO Adding Employee Task
-    @FormUrlEncoded
-    @POST("list_kerjaan/create_kerjaan.php")
-    Call<ResponseTambahTask> responseTambahTask(@Field("nama_kerjaan") String nama_kerjaan,
-                                                @Field("level_kerjaan") String level_kerjaan,
-                                                @Field("hari_kerjaan") String hari_kerjaan,
-                                                @Field("waktu_kerjaan") String waktu_kerjaan,
-                                                @Field("poin_kerjaan") String poin_kerjaan);
 
-    // TODO Read Staff
+    // TODO Get Staff
     @GET("users/get_users.php")
     Call<ArrayList<ResponseGetUsers>> responseGetUsers();
 
-    // TODO Read Staff Task
+    // TODO Get Staff Task
     @GET("list_kerjaan/get_kerjaan.php")
     Call<ArrayList<ResponseListKerjaan>> responseListKerjaan(@Query("hari_kerjaan") String hari_kerjaan);
 

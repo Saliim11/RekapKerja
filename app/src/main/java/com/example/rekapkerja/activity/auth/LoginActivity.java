@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.rekapkerja.R;
 import com.example.rekapkerja.activity.MainActivity;
 import com.example.rekapkerja.activity.admin.AdminActivity;
-import com.example.rekapkerja.activity.admin.adminhome.TambahTaskActivity;
 import com.example.rekapkerja.model.login.ResponseLogin;
 import com.example.rekapkerja.network.ApiClient;
 
@@ -26,7 +25,8 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
-    public static String leveluser;
+    public static String idUser;
+    public static String levelUser;
 
     @BindView(R.id.edtUserLogin)
     EditText edtUserLogin;
@@ -67,9 +67,10 @@ public class LoginActivity extends AppCompatActivity {
                     String message = response.body().getMsg();
 //                    Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
 
-                    leveluser = user.getUser().getLevelUser();
+                    idUser = user.getUser().getIdUser();
+                    levelUser = user.getUser().getLevelUser();
 
-                    if (leveluser.equals("Pimpinan")) {
+                    if (levelUser.equals("Pimpinan")) {
                         startActivity(new Intent(LoginActivity.this, AdminActivity.class));
                         finish();
                     } else {

@@ -19,7 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.rekapkerja.R;
 import com.example.rekapkerja.activity.admin.AdminActivity;
-import com.example.rekapkerja.model.tambahtask.ResponseTambahTask;
+import com.example.rekapkerja.model.listKerjaan.ResponseTambahKerjaan;
 import com.example.rekapkerja.network.ApiClient;
 
 import java.util.Calendar;
@@ -127,9 +127,9 @@ public class TambahTaskActivity extends AppCompatActivity {
     }
 
     private void addEmployeeTask(String paramNamaKerjaan, String paramLevelKerjaan, String paramHariKerjaan, String paramWaktuKerjaan, String paramPoinKerjaan) {
-        ApiClient.service.responseTambahTask(paramNamaKerjaan, paramLevelKerjaan, paramHariKerjaan, paramWaktuKerjaan, paramPoinKerjaan).enqueue(new Callback<ResponseTambahTask>() {
+        ApiClient.service.responseTambahKerjaan(paramNamaKerjaan, paramLevelKerjaan, paramHariKerjaan, paramWaktuKerjaan, paramPoinKerjaan).enqueue(new Callback<ResponseTambahKerjaan>() {
             @Override
-            public void onResponse(Call<ResponseTambahTask> call, Response<ResponseTambahTask> response) {
+            public void onResponse(Call<ResponseTambahKerjaan> call, Response<ResponseTambahKerjaan> response) {
                 if (response.isSuccessful()) {
                     String message = response.body().getMessage();
                     String status = response.body().getStatus();
@@ -145,7 +145,7 @@ public class TambahTaskActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ResponseTambahTask> call, Throwable t) {
+            public void onFailure(Call<ResponseTambahKerjaan> call, Throwable t) {
                 Toast.makeText(TambahTaskActivity.this, "FailedOnFailure", Toast.LENGTH_SHORT).show();
             }
         });

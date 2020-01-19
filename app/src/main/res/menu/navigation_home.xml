@@ -12,8 +12,8 @@
         android:title="Chart"/>
 
     <item
-        android:id="@+id/navigation_setting_home"
+        android:id="@+id/navigation_history"
         android:icon="@drawable/ic_settings_black_24dp"
-        android:title="Settings" />
+        android:title="History"/>
 
 </menu>
