@@ -20,7 +20,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.rekapkerja.R;
-import com.example.rekapkerja.adapter.TaskListAdapter;
+import com.example.rekapkerja.adapter.ListKerjaanStaffAdapter;
 import com.example.rekapkerja.model.listKerjaan.ResponseListKerjaan;
 import com.example.rekapkerja.network.ApiClient;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -117,7 +117,7 @@ public class AdminHomeFragment extends Fragment {
                     } else {
                         recyclerListKerjaan.setHasFixedSize(true);
                         recyclerListKerjaan.setLayoutManager(new LinearLayoutManager(getActivity()));
-                        recyclerListKerjaan.setAdapter(new TaskListAdapter(getActivity(), data));
+                        recyclerListKerjaan.setAdapter(new ListKerjaanStaffAdapter(getActivity(), data));
                         txtNull.setVisibility(View.GONE);
                         recyclerListKerjaan.setVisibility(View.VISIBLE);
                     }

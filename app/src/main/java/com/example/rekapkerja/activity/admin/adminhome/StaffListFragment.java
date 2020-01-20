@@ -2,7 +2,6 @@ package com.example.rekapkerja.activity.admin.adminhome;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.rekapkerja.R;
-import com.example.rekapkerja.adapter.StaffListAdapter;
+import com.example.rekapkerja.adapter.ListStaffAdapter;
 import com.example.rekapkerja.model.getuser.ResponseGetUsers;
 import com.example.rekapkerja.network.ApiClient;
 
@@ -58,7 +57,7 @@ public class StaffListFragment extends Fragment {
                     } else {
                         recyclerStaff.setHasFixedSize(true);
                         recyclerStaff.setLayoutManager(new LinearLayoutManager(getActivity()));
-                        recyclerStaff.setAdapter(new StaffListAdapter(getActivity(), data));
+                        recyclerStaff.setAdapter(new ListStaffAdapter(getActivity(), data));
                     }
                 }
             }

@@ -1,5 +1,6 @@
 package com.example.rekapkerja.network;
 
+import com.example.rekapkerja.model.kerjaanSelesai.ResponseListSelesai;
 import com.example.rekapkerja.model.kerjaanSelesai.ResponseTambahSelesai;
 import com.example.rekapkerja.model.deletekerjaan.ResponseDeleteKerjaan;
 import com.example.rekapkerja.model.deleteuser.ResponseDeleteUser;
@@ -63,7 +64,7 @@ public interface ApiInterface {
     Call<ArrayList<ResponseListKerjaanStaff>> responseListKerjaan(@Query("level_kerjaan") String level_kerjaan,
                                                                   @Query("hari_kerjaan") String hari_kerjaan);
 
-    // TODO Get Staff
+    // TODO Get List Staff
     @GET("users/get_users.php")
     Call<ArrayList<ResponseGetUsers>> responseGetUsers();
 
@@ -98,4 +99,9 @@ public interface ApiInterface {
     // TODO Delete User
     @DELETE("users/delete_users.php")
     Call<ResponseDeleteUser> responseDeleteUser(@Query("id_user") String id_user);
+
+    // TODO Get List Kerjaan Selesai
+    @GET("kerjaan_selesai/get_selesai.php")
+    Call<ArrayList<ResponseListSelesai>> responseListSelesai(@Query("id_user") String id_user);
+
 }

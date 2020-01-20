@@ -6,7 +6,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.staff.history.HistoryFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="total poin :"
+        android:textSize="20sp"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:id="@+id/txtTotalPoin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="25"
+        android:textSize="25sp"
+        android:textColor="#000000"
+        android:layout_marginTop="10dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="#000000"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rc_list_selesai"

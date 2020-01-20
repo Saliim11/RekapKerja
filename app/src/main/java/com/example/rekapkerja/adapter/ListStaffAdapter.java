@@ -17,12 +17,12 @@ import com.example.rekapkerja.model.getuser.ResponseGetUsers;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StaffListAdapter extends RecyclerView.Adapter<StaffListAdapter.ViewHolder> {
+public class ListStaffAdapter extends RecyclerView.Adapter<ListStaffAdapter.ViewHolder> {
 
     Context context;
     List<ResponseGetUsers> dataStaff;
 
-    public StaffListAdapter(Context context, ArrayList<ResponseGetUsers> dataStaff) {
+    public ListStaffAdapter(Context context, ArrayList<ResponseGetUsers> dataStaff) {
         this.context = context;
         this.dataStaff = dataStaff;
     }

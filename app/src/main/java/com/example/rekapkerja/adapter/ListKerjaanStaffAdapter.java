@@ -16,12 +16,12 @@ import com.example.rekapkerja.activity.admin.adminhome.UDKerjaanActivity;
 
 import java.util.List;
 
-public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHolder> {
+public class ListKerjaanStaffAdapter extends RecyclerView.Adapter<ListKerjaanStaffAdapter.ViewHolder> {
 
     Context context;
     List<ResponseListKerjaan> dataGetKerjaan;
 
-    public TaskListAdapter(Context context, List<ResponseListKerjaan> dataGetKerjaan) {
+    public ListKerjaanStaffAdapter(Context context, List<ResponseListKerjaan> dataGetKerjaan) {
         this.context = context;
         this.dataGetKerjaan = dataGetKerjaan;
     }
