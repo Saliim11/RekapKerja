@@ -1,6 +1,7 @@
 package com.example.rekapkerja.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rekapkerja.R;
+import com.example.rekapkerja.activity.admin.adminhome.StaffDetailActivity;
 import com.example.rekapkerja.model.getuser.ResponseGetUsers;
 
 import java.util.ArrayList;
@@ -37,9 +39,25 @@ public class StaffListAdapter extends RecyclerView.Adapter<StaffListAdapter.View
 
         String namaStaff = dataStaff.get(position).getNamaUser();
         String levelStaff = dataStaff.get(position).getLevelUser();
+        String userStaff = dataStaff.get(position).getUsernameUser();
+        String kelasStaff = dataStaff.get(position).getKelasUser();
+        String idStaff = dataStaff.get(position).getIdUser();
 
         holder.txtNamaStaff.setText(namaStaff);
         holder.txtLevelStaff.setText(levelStaff);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, StaffDetailActivity.class);
+                intent.putExtra("id", idStaff);
+                intent.putExtra("nama", namaStaff);
+                intent.putExtra("username", userStaff);
+                intent.putExtra("level", levelStaff);
+                intent.putExtra("kelas", kelasStaff);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

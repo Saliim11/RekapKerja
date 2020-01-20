@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.admin.adminhome.UDKerjaanActivity">
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <EditText
+            android:id="@+id/edtUpdateTaskName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nama Kerjaan"
+            android:inputType="text"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tambah kerjaan sebagai :"
+            android:layout_marginTop="20dp"/>
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <RadioButton android:id="@+id/radio_update_task_guru"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Guru"
+                android:layout_marginRight="30dp" />
+
+            <RadioButton android:id="@+id/radio_update_task_musyrif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Musyrif" />
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tambah Hari / Waktu / Poin Kerjaan :"
+            android:layout_marginTop="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:minHeight="1dp">
+
+            <Spinner
+                android:id="@+id/spinUpdateTaskDate"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"/>
+
+            <EditText
+                android:id="@+id/edtUpdateTaskTime"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:hint="Waktu"
+                android:layout_marginTop="10dp"
+                android:inputType="text"/>
+
+            <Spinner
+                android:id="@+id/spinUpdatePoint"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout"
+        android:padding="20dp">
+
+    <Button
+        android:id="@+id/btnUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:textColor="#FFF"
+        android:layout_marginBottom="20dp"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"/>
+
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnUpdate"
+        android:text="Delete"
+        android:textColor="#FFF"
+        android:background="#B13A3A"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,20 +1,28 @@
 package com.example.rekapkerja.network;
 
 import com.example.rekapkerja.model.kerjaanSelesai.ResponseTambahSelesai;
+import com.example.rekapkerja.model.deletekerjaan.ResponseDeleteKerjaan;
+import com.example.rekapkerja.model.deleteuser.ResponseDeleteUser;
 import com.example.rekapkerja.model.listKerjaan.ResponseListKerjaanStaff;
 import com.example.rekapkerja.model.listKerjaan.ResponseListKerjaan;
 import com.example.rekapkerja.model.getuser.ResponseGetUsers;
 import com.example.rekapkerja.model.login.ResponseLogin;
 import com.example.rekapkerja.model.register.ResponseRegister;
 import com.example.rekapkerja.model.listKerjaan.ResponseTambahKerjaan;
+import com.example.rekapkerja.model.updatekerjaan.ResponseUpdateKerjaan;
+import com.example.rekapkerja.model.updateuser.ResponseUpdateUser;
+
+import java.util.ArrayList;
 
 import java.util.ArrayList;
 
 import retrofit2.Call;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Query;
 
 public interface ApiInterface {
@@ -60,7 +68,34 @@ public interface ApiInterface {
     Call<ArrayList<ResponseGetUsers>> responseGetUsers();
 
     // TODO Get Staff Task
+
+    // TODO Read Staff Kerjaan
     @GET("list_kerjaan/get_kerjaan.php")
     Call<ArrayList<ResponseListKerjaan>> responseListKerjaan(@Query("hari_kerjaan") String hari_kerjaan);
 
+    // TODO Update Kerjaan
+    @PUT("list_kerjaan/update_kerjaan.php")
+    Call<ResponseUpdateKerjaan> responseUpdateKerjaan(@Query("id_kerjaan") String id_kerjaan,
+                                                      @Query("nama_kerjaan") String nama_kerjaan,
+                                                      @Query("level_kerjaan") String level_kerjaan,
+                                                      @Query("hari_kerjaan") String hari_kerjaan,
+                                                      @Query("waktu_kerjaan") String waktu_kerjaan,
+                                                      @Query("poin_kerjaan") String poin_kerjaan);
+
+    // TODO Delete Kerjaan
+    @DELETE("list_kerjaan/delete_kerjaan.php")
+    Call<ResponseDeleteKerjaan> responseDeleteKerjaan(@Query("id_kerjaan") String id_kerjaan);
+
+    // TODO Update User
+    @PUT("users/update_users.php")
+    Call<ResponseUpdateUser> responseUpdateUser(@Query("id_user") String id_user,
+                                                @Query("nama_user") String nama_user,
+                                                @Query("username_user") String username_user,
+                                                @Query("password_user") String password_user,
+                                                @Query("level_user") String level_user,
+                                                @Query("kelas_user") String kelas_user);
+
+    // TODO Delete User
+    @DELETE("users/delete_users.php")
+    Call<ResponseDeleteUser> responseDeleteUser(@Query("id_user") String id_user);
 }

@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.rekapkerja">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,13 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.staff.history.HistoryFragment"></activity>
+        <activity android:name=".activity.admin.adminhome.UDKerjaanActivity"></activity>
+        <activity android:name=".activity.admin.adminhome.StaffChartFragment" />
+        <activity android:name=".activity.admin.adminhome.StaffDetailActivity" />
         <activity
-            android:name=".activity.admin.adminmenu.TentangAdminActivity"
-            android:label="Tentang Rekap Kerja IDN" />
-        <activity
-            android:name=".activity.admin.adminmenu.PengaturanAdminActivity"
-            android:label="Pengaturan Admin" />
+            android:name=".activity.admin.adminmenu.PengaturanActivity"
+            android:label="Pengaturan Akun" />
         <activity
             android:name=".activity.admin.adminhome.TambahTaskActivity"
             android:label="Tambah Kerjaan" />
@@ -40,5 +37,7 @@
         </activity>
         <activity android:name=".activity.MainActivity" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

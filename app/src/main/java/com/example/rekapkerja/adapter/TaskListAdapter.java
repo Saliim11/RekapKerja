@@ -1,6 +1,7 @@
 package com.example.rekapkerja.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rekapkerja.R;
 import com.example.rekapkerja.model.listKerjaan.ResponseListKerjaan;
+import com.example.rekapkerja.activity.admin.adminhome.UDKerjaanActivity;
 
 import java.util.List;
 
@@ -38,11 +40,27 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHo
         String waktuKerjaan = dataGetKerjaan.get(position).getWaktuKerjaan();
         String namaKerjaan = dataGetKerjaan.get(position).getNamaKerjaan();
         String levelKerjaan = dataGetKerjaan.get(position).getLevelKerjaan();
+        String poinKerjaan = dataGetKerjaan.get(position).getPoinKerjaan();
+        String idKerjaan = dataGetKerjaan.get(position).getIdKerjaan();
 
         holder.txtHari.setText(hariKerjaan);
         holder.txtWaktu.setText(waktuKerjaan);
         holder.txtNama.setText(namaKerjaan);
         holder.txtLevel.setText(levelKerjaan);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, UDKerjaanActivity.class);
+                intent.putExtra(UDKerjaanActivity.KEY_ID, idKerjaan);
+                intent.putExtra(UDKerjaanActivity.KEY_NAMA, namaKerjaan);
+                intent.putExtra(UDKerjaanActivity.KEY_LEVEL, levelKerjaan);
+                intent.putExtra(UDKerjaanActivity.KEY_HARI, hariKerjaan);
+                intent.putExtra(UDKerjaanActivity.KEY_WAKTU, waktuKerjaan);
+                intent.putExtra(UDKerjaanActivity.KEY_POIN, poinKerjaan);
+                context.startActivity(intent);
+            }
+        });
 
     }
 

@@ -44,7 +44,7 @@ public class ListKerjaanAdapter extends RecyclerView.Adapter<ListKerjaanAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        String id = LoginActivity.idUser;
+        String id = LoginActivity.iduser;
         String namaKerjaan = dataKerjaan.get(position).getNamaKerjaan();
         String waktuKerjaan = dataKerjaan.get(position).getWaktuKerjaan();
         String poinKerjaan = dataKerjaan.get(position).getPoinKerjaan();

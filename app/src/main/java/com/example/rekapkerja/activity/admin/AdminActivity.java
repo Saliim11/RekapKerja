@@ -12,10 +12,9 @@ import android.view.MenuItem;
 
 import com.example.rekapkerja.R;
 import com.example.rekapkerja.activity.admin.adminhome.AdminHomeFragment;
+import com.example.rekapkerja.activity.admin.adminhome.StaffChartFragment;
 import com.example.rekapkerja.activity.admin.adminhome.StaffListFragment;
-import com.example.rekapkerja.activity.staff.home.HomeFragment;
-import com.example.rekapkerja.activity.admin.adminmenu.PengaturanAdminActivity;
-import com.example.rekapkerja.activity.admin.adminmenu.TentangAdminActivity;
+import com.example.rekapkerja.activity.admin.adminmenu.PengaturanActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class AdminActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -53,6 +52,9 @@ public class AdminActivity extends AppCompatActivity implements BottomNavigation
             case R.id.navigation_staff_list_admin:
                 fragment = new StaffListFragment();
                 break;
+            case R.id.navigation_staff_chart_admin:
+                fragment = new StaffChartFragment();
+                break;
         }
         return loadFragment(fragment);
     }
@@ -67,9 +69,8 @@ public class AdminActivity extends AppCompatActivity implements BottomNavigation
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item1:
-                startActivity(new Intent(AdminActivity.this, PengaturanAdminActivity.class));
+                startActivity(new Intent(AdminActivity.this, PengaturanActivity.class));
                 return true;
-
             default:
                 return super.onOptionsItemSelected(item);
         }

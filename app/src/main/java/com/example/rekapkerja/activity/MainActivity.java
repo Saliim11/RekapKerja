@@ -12,8 +12,7 @@ import android.view.MenuItem;
 
 import com.example.rekapkerja.R;
 import com.example.rekapkerja.activity.admin.AdminActivity;
-import com.example.rekapkerja.activity.admin.adminmenu.PengaturanAdminActivity;
-import com.example.rekapkerja.activity.admin.adminmenu.TentangAdminActivity;
+import com.example.rekapkerja.activity.admin.adminmenu.PengaturanActivity;
 import com.example.rekapkerja.activity.staff.chart.ChartFragment;
 import com.example.rekapkerja.activity.staff.history.HistoryFragment;
 import com.example.rekapkerja.activity.staff.home.HomeFragment;
@@ -43,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item1:
-                startActivity(new Intent(MainActivity.this, PengaturanAdminActivity.class));
+                startActivity(new Intent(MainActivity.this, PengaturanActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

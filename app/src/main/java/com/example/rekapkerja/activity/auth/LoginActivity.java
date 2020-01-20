@@ -25,8 +25,10 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
-    public static String idUser;
-    public static String levelUser;
+    public static String iduser;
+    public static String namauser;
+    public static String leveluser;
+    public static String kelasuser;
 
     @BindView(R.id.edtUserLogin)
     EditText edtUserLogin;
@@ -67,10 +69,12 @@ public class LoginActivity extends AppCompatActivity {
                     String message = response.body().getMsg();
 //                    Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
 
-                    idUser = user.getUser().getIdUser();
-                    levelUser = user.getUser().getLevelUser();
+                    iduser = user.getUser().getIdUser();
+                    namauser = user.getUser().getNamaUser();
+                    leveluser = user.getUser().getLevelUser();
+                    kelasuser = user.getUser().getKelasUser();
 
-                    if (levelUser.equals("Pimpinan")) {
+                    if (leveluser.equals("Pimpinan")) {
                         startActivity(new Intent(LoginActivity.this, AdminActivity.class));
                         finish();
                     } else {

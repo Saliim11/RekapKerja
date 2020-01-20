@@ -63,7 +63,7 @@ public class HomeFragment extends Fragment {
         txtLevel = view.findViewById(R.id.txt_level_kerjaan);
         txtHari = view.findViewById(R.id.txt_hari_kerjaan);
 
-        String level = LoginActivity.levelUser;
+        String level = LoginActivity.leveluser;
         Log.d("levelStaff", level);
 
         txtLevel.setText(level);

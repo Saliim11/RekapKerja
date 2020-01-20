@@ -112,12 +112,14 @@ public class AdminHomeFragment extends Fragment {
                         String harihari = spinFilterHari.getSelectedItem().toString();
 
                         txtNull.setVisibility(View.VISIBLE);
+                        recyclerListKerjaan.setVisibility(View.GONE);
                         txtNull.setText("Data Hari "+harihari+" tidak ada");
                     } else {
                         recyclerListKerjaan.setHasFixedSize(true);
                         recyclerListKerjaan.setLayoutManager(new LinearLayoutManager(getActivity()));
                         recyclerListKerjaan.setAdapter(new TaskListAdapter(getActivity(), data));
                         txtNull.setVisibility(View.GONE);
+                        recyclerListKerjaan.setVisibility(View.VISIBLE);
                     }
                 }
             }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.admin.adminmenu.PengaturanAdminActivity">
+    tools:context=".activity.admin.adminmenu.PengaturanActivity">
 
     <TextView
         android:id="@+id/textview"
@@ -24,18 +24,7 @@
         android:paddingLeft="20dp"
         android:background="#FFF"
         android:textAllCaps="false"
-        android:text="Ganti Username" />
-
-    <Button
-        android:id="@+id/btnChangePass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="left|center_vertical"
-        android:layout_below="@id/btnChangeUsername"
-        android:paddingLeft="20dp"
-        android:background="#FFF"
-        android:textAllCaps="false"
-        android:text="Ganti Password" />
+        android:text="Ganti Username dan Password" />
 
     <Button
         android:id="@+id/btnAdminLogout"

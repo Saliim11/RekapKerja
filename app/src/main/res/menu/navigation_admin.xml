@@ -11,4 +11,9 @@
         android:icon="@drawable/ic_face_black_24dp"
         android:title="Staff List"/>
 
+    <item
+        android:id="@+id/navigation_staff_chart_admin"
+        android:icon="@drawable/ic_show_chart_black_24dp"
+        android:title="Staff Chart"/>
+
 </menu>
