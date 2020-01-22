@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,11 +28,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static java.security.AccessController.getContext;
-
 public class PengaturanActivity extends AppCompatActivity {
 
-    EditText edtUpdateUser, edtUpdatePassword;
+    EditText edtUpdateUser, edtUpdatePassword, edtUpdateNama;
+    Spinner spinUpdateKelas, spinUpdateBagian;
 
     @BindView(R.id.txtFirstName)
     TextView txtFirstName;
@@ -69,6 +70,7 @@ public class PengaturanActivity extends AppCompatActivity {
                 break;
             case R.id.btnGantiNama:
                 dialogForm2();
+                break;
             case R.id.btnAdminLogout:
                 logoutDialog();
                 break;
@@ -82,15 +84,14 @@ public class PengaturanActivity extends AppCompatActivity {
         View dialogView = inflater.inflate(R.layout.form_dialog, null);
         dialog.setView(dialogView);
         dialog.setCancelable(true);
-        dialog.setIcon(R.mipmap.ic_launcher);
-        dialog.setTitle("Update User");
+        dialog.setTitle("Update Username & Password");
 
         edtUpdateUser = dialogView.findViewById(R.id.edtUpdateUser);
         edtUpdatePassword = dialogView.findViewById(R.id.edtUpdatePassword);
 
         edtUpdateUser.setText(usernameUser);
 
-        dialog.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+        dialog.setPositiveButton("Ubah", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
@@ -100,7 +101,11 @@ public class PengaturanActivity extends AppCompatActivity {
                 String level = LoginActivity.levelUser;
                 String kelas = LoginActivity.kelasUser;
 
-                updateUser(nama, username, password, level, kelas);
+                updateUsername(nama, username, password, level, kelas);
+
+                SaveSharedPreference.setLoggedOut(PengaturanActivity.this);
+                startActivity(new Intent(PengaturanActivity.this, LoginActivity.class));
+                finish();
             }
         });
 
@@ -114,8 +119,112 @@ public class PengaturanActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    private void dialogForm2() {
+    private void updateUsername(String nama, String username, String password, String level, String kelas) {
 
+        String id = LoginActivity.idUser;
+
+        ApiClient.service.responseUpdateUser(id, nama, username, password, level, kelas).enqueue(new Callback<ResponseUpdateUser>() {
+            @Override
+            public void onResponse(Call<ResponseUpdateUser> call, Response<ResponseUpdateUser> response) {
+                if (response.isSuccessful()) {
+                    String message = response.body().getMessage();
+                    String status = response.body().getStatus();
+
+                    if (message.equalsIgnoreCase("update sukses")) {
+                        Toast.makeText(PengaturanActivity.this, message, Toast.LENGTH_SHORT).show();
+
+                    } else if (status.equalsIgnoreCase("0")) {
+                        Toast.makeText(PengaturanActivity.this, message, Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseUpdateUser> call, Throwable t) {
+                Toast.makeText(PengaturanActivity.this, "Gagal On Failure", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void dialogForm2() {
+        String namaUser = LoginActivity.namaUser;
+        AlertDialog.Builder dialog = new AlertDialog.Builder(PengaturanActivity.this);
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.form_dialog2, null);
+        dialog.setView(dialogView);
+        dialog.setCancelable(true);
+        dialog.setTitle("Update Nama & Kelas");
+
+        edtUpdateNama = dialogView.findViewById(R.id.edtUpdateName);
+        spinUpdateKelas = dialogView.findViewById(R.id.spinUpdateKelas);
+        spinUpdateBagian = dialogView.findViewById(R.id.spinUpdateBagian);
+
+        edtUpdateNama.setText(namaUser);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, getResources().getStringArray(R.array.kelas));
+        spinUpdateKelas.setAdapter(adapter);
+
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, getResources().getStringArray(R.array.bagian));
+        spinUpdateBagian.setAdapter(adapter1);
+
+        String k = spinUpdateKelas.getSelectedItem().toString();
+        String b = spinUpdateBagian.getSelectedItem().toString();
+
+
+        dialog.setPositiveButton("Ubah", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String nama = edtUpdateNama.getText().toString();
+                String kelas = k+" "+b;
+                String username = LoginActivity.usernameUser;
+                String password = LoginActivity.passwordUser;
+                String level = LoginActivity.levelUser;
+
+                updateNama(nama, username, password, level, kelas);
+
+                SaveSharedPreference.setLoggedOut(PengaturanActivity.this);
+                startActivity(new Intent(PengaturanActivity.this, LoginActivity.class));
+                finish();
+
+            }
+        });
+
+        dialog.setNegativeButton("Batal", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+
+    }
+
+    private void updateNama(String nama, String username, String password, String level, String kelas) {
+        String id = LoginActivity.idUser;
+
+        ApiClient.service.responseUpdateUser(id, nama, username, password, level, kelas).enqueue(new Callback<ResponseUpdateUser>() {
+            @Override
+            public void onResponse(Call<ResponseUpdateUser> call, Response<ResponseUpdateUser> response) {
+                if (response.isSuccessful()) {
+                    String message = response.body().getMessage();
+                    String status = response.body().getStatus();
+
+                    if (message.equalsIgnoreCase("update sukses")) {
+                        Toast.makeText(PengaturanActivity.this, message, Toast.LENGTH_SHORT).show();
+
+                    } else if (status.equalsIgnoreCase("0")) {
+                        Toast.makeText(PengaturanActivity.this, message, Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseUpdateUser> call, Throwable t) {
+                Toast.makeText(PengaturanActivity.this, "Gagal On Failure", Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 
     private void logoutDialog() {
@@ -138,33 +247,5 @@ public class PengaturanActivity extends AppCompatActivity {
             }
         });
         dialog.show();
-    }
-
-
-    private void updateUser(String nama, String username, String password, String level, String kelas) {
-
-        String id = LoginActivity.idUser;
-
-        ApiClient.service.responseUpdateUser(id, nama, username, password, level, kelas).enqueue(new Callback<ResponseUpdateUser>() {
-            @Override
-            public void onResponse(Call<ResponseUpdateUser> call, Response<ResponseUpdateUser> response) {
-                if (response.isSuccessful()) {
-                    String message = response.body().getMessage();
-                    String status = response.body().getStatus();
-
-                    if (message.equalsIgnoreCase("update sukses")) {
-                        Toast.makeText(PengaturanActivity.this, message, Toast.LENGTH_SHORT).show();
-                        finish();
-                    } else if (status.equalsIgnoreCase("0")) {
-                        Toast.makeText(PengaturanActivity.this, message, Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResponseUpdateUser> call, Throwable t) {
-                Toast.makeText(PengaturanActivity.this, "Gagal On Failure", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 }

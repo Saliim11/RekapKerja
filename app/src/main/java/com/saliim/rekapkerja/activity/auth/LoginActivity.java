@@ -26,6 +26,7 @@ import retrofit2.Response;
 
 import static com.saliim.rekapkerja.utils.PreferencesUtility.ID_PREF;
 import static com.saliim.rekapkerja.utils.PreferencesUtility.NAMA_PREF;
+import static com.saliim.rekapkerja.utils.PreferencesUtility.PASSWORD_PREF;
 import static com.saliim.rekapkerja.utils.PreferencesUtility.USERNAME_PREF;
 import static com.saliim.rekapkerja.utils.PreferencesUtility.LEVEL_PREF;
 import static com.saliim.rekapkerja.utils.PreferencesUtility.KELAS_PREF;
@@ -38,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     public static String usernameUser;
     public static String levelUser;
     public static String kelasUser;
+    public static String passwordUser;
 
     @BindView(R.id.edtUserLogin)
     EditText edtUserLogin;
@@ -58,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
             idUser = SaveSharedPreference.getLoggedStatusString(getApplicationContext(), ID_PREF);
             namaUser = SaveSharedPreference.getLoggedStatusString(getApplicationContext(), NAMA_PREF);
             usernameUser = SaveSharedPreference.getLoggedStatusString(getApplicationContext(), USERNAME_PREF);
+            passwordUser = SaveSharedPreference.getLoggedStatusString(getApplicationContext(), PASSWORD_PREF);
             levelUser = SaveSharedPreference.getLoggedStatusString(getApplicationContext(), LEVEL_PREF);
             kelasUser = SaveSharedPreference.getLoggedStatusString(getApplicationContext(), KELAS_PREF);
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
@@ -71,6 +74,8 @@ public class LoginActivity extends AppCompatActivity {
 
         String username = edtUserLogin.getText().toString();
         String password = edtPassLogin.getText().toString();
+
+        passwordUser = password;
 
         if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Cannot be empty", Toast.LENGTH_SHORT).show();
@@ -95,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
                     levelUser = user.getUser().getLevelUser();
                     kelasUser = user.getUser().getKelasUser();
 
-                    SaveSharedPreference.setLoggedIn(getApplicationContext(), true, kelasUser, levelUser, usernameUser, namaUser, idUser);
+                    SaveSharedPreference.setLoggedIn(getApplicationContext(), true, kelasUser, levelUser, passwordUser, usernameUser, namaUser, idUser);
 
                     if (levelUser.equals("Pimpinan")) {
                         startActivity(new Intent(LoginActivity.this, AdminActivity.class));
