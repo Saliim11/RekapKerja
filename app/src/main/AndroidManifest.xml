@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.rekapkerja">
+    package="com.saliim.rekapkerja">
 
     <application
         android:allowBackup="true"
@@ -9,25 +9,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.admin.adminhome.UDKerjaanActivity"></activity>
-        <activity android:name=".activity.admin.adminhome.StaffChartFragment" />
-        <activity android:name=".activity.admin.adminhome.StaffDetailActivity" />
+        <activity android:name="com.saliim.rekapkerja.activity.admin.adminhome.UDKerjaanActivity"></activity>
+        <activity android:name="com.saliim.rekapkerja.activity.admin.adminhome.StaffChartFragment" />
+        <activity android:name="com.saliim.rekapkerja.activity.admin.adminhome.StaffDetailActivity" />
         <activity
-            android:name=".activity.admin.adminmenu.PengaturanActivity"
+            android:name="com.saliim.rekapkerja.activity.PengaturanActivity"
             android:label="Pengaturan Akun" />
         <activity
-            android:name=".activity.admin.adminhome.TambahTaskActivity"
+            android:name="com.saliim.rekapkerja.activity.admin.adminhome.TambahTaskActivity"
             android:label="Tambah Kerjaan" />
-        <activity android:name=".activity.admin.adminhome.StaffListFragment" />
-        <activity android:name=".activity.admin.adminhome.AdminHomeFragment" />
-        <activity android:name=".activity.staff.chart.ChartFragment" />
-        <activity android:name=".activity.staff.home.HomeFragment" />
-        <activity android:name=".activity.admin.AdminActivity" />
+        <activity android:name="com.saliim.rekapkerja.activity.admin.adminhome.StaffListFragment" />
+        <activity android:name="com.saliim.rekapkerja.activity.admin.adminhome.AdminHomeFragment" />
+        <activity android:name="com.saliim.rekapkerja.activity.staff.chart.ChartFragment" />
+        <activity android:name="com.saliim.rekapkerja.activity.staff.home.HomeFragment" />
+        <activity android:name="com.saliim.rekapkerja.activity.admin.AdminActivity" />
         <activity
-            android:name=".activity.auth.RegisterActivity"
+            android:name="com.saliim.rekapkerja.activity.auth.RegisterActivity"
             android:label="Register Rekap Kerja IDN" />
         <activity
-            android:name=".activity.auth.LoginActivity"
+            android:name="com.saliim.rekapkerja.activity.auth.LoginActivity"
             android:label="Login Rekap Kerja IDN">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,7 +35,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity" />
+        <activity android:name="com.saliim.rekapkerja.activity.MainActivity" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

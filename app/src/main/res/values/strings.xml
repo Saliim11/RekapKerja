@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">Rekap Kerja IDN</string>
     <string name="title_list">ListApp</string>
+    <string-array name="kelas">
+        <item>12</item>
+        <item>11</item>
+        <item>10</item>
+        <item>9</item>
+        <item>8</item>
+        <item>7</item>
+    </string-array>
+    <string-array name="bagian">
+        <item>RPL</item>
+        <item>TKJ</item>
+        <item>SMP</item>
+    </string-array>
 </resources>

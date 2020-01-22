@@ -62,11 +62,27 @@
         android:text="Pilih kelas :"
         android:layout_marginTop="20dp"/>
 
-    <Spinner
-        android:id="@+id/spinClass"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"/>
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/spinKelas"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp" />
+
+        <Spinner
+            android:id="@+id/spinBagian"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/btnRegister"

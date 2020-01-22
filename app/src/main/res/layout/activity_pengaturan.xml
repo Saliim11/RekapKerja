@@ -4,27 +4,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.admin.adminmenu.PengaturanActivity">
+    tools:context=".activity.PengaturanActivity">
+
+        <LinearLayout
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Hello! Firstname"
+                android:textSize="30sp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/txtFullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="18sp"
+                tools:text="Fullname" />
+
+
+
+        </LinearLayout>
 
     <TextView
         android:id="@+id/textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/view"
         android:text="Pengaturan"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"/>
 
     <Button
-        android:id="@+id/btnChangeUsername"
+        android:id="@+id/btnGantiUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="left|center_vertical"
         android:layout_below="@id/textview"
         android:paddingLeft="20dp"
         android:background="#FFF"
         android:textAllCaps="false"
         android:text="Ganti Username dan Password" />
+
+    <Button
+        android:id="@+id/btnGantiNama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnGantiUsername"
+        android:paddingLeft="20dp"
+        android:background="#FFF"
+        android:textAllCaps="false"
+        android:text="Ganti Nama dan Kelas"
+        android:layout_marginTop="10dp" />
 
     <Button
         android:id="@+id/btnAdminLogout"
