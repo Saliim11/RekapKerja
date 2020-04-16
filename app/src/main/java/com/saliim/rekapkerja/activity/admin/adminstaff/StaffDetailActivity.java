@@ -1,4 +1,4 @@
-package com.saliim.rekapkerja.activity.admin.adminhome;
+package com.saliim.rekapkerja.activity.admin.adminstaff;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.saliim.rekapkerja.R;
+import com.saliim.rekapkerja.activity.admin.AdminActivity;
+import com.saliim.rekapkerja.activity.admin.adminhome.TambahTaskActivity;
 import com.saliim.rekapkerja.model.deleteuser.ResponseDeleteUser;
 import com.saliim.rekapkerja.network.ApiClient;
 
@@ -75,6 +77,7 @@ public class StaffDetailActivity extends AppCompatActivity {
 
                             if (status == 1) {
                                 Toast.makeText(StaffDetailActivity.this, message, Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(StaffDetailActivity.this, AdminActivity.class));
                                 finish();
                             } else if (status == 0) {
                                 Toast.makeText(StaffDetailActivity.this, message, Toast.LENGTH_SHORT).show();
@@ -90,7 +93,7 @@ public class StaffDetailActivity extends AppCompatActivity {
             }
         });
 
-        builder.setNegativeButton("Ya", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Belum", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();

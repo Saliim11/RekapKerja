@@ -107,7 +107,7 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onFailure(Call<ArrayList<ResponseListKerjaanStaff>> call, Throwable t) {
-                Toast.makeText(getActivity(), "onfailure", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), "onfailure", Toast.LENGTH_SHORT).show();
             }
         });
     }

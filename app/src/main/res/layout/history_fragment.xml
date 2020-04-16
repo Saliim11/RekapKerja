@@ -12,7 +12,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="total poin :"
+        android:text="total poin :"
         android:textSize="20sp"
         android:textColor="#000000"/>
 

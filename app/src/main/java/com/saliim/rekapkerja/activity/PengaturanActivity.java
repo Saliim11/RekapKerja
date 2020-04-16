@@ -235,8 +235,11 @@ public class PengaturanActivity extends AppCompatActivity {
         dialog.setPositiveButton("Iya", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+//                startActivity(new Intent(PengaturanActivity.this, LoginActivity.class));
+                Intent Logout = new Intent(PengaturanActivity.this, LoginActivity.class);
+                Logout.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(Logout);
                 SaveSharedPreference.setLoggedOut(PengaturanActivity.this);
-                startActivity(new Intent(PengaturanActivity.this, LoginActivity.class));
                 finish();
             }
         });

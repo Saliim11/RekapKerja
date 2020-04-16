@@ -12,8 +12,8 @@ import android.view.MenuItem;
 
 import com.saliim.rekapkerja.R;
 import com.saliim.rekapkerja.activity.admin.adminhome.AdminHomeFragment;
-import com.saliim.rekapkerja.activity.admin.adminhome.StaffChartFragment;
-import com.saliim.rekapkerja.activity.admin.adminhome.StaffListFragment;
+import com.saliim.rekapkerja.activity.admin.adminchart.StaffChartFragment;
+import com.saliim.rekapkerja.activity.admin.adminstaff.StaffListFragment;
 import com.saliim.rekapkerja.activity.PengaturanActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".activity.admin.adminhome.StaffDetailActivity">
+    tools:context=".activity.admin.adminstaff.StaffDetailActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

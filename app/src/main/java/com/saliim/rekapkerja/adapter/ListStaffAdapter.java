@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.saliim.rekapkerja.R;
-import com.saliim.rekapkerja.activity.admin.adminhome.StaffDetailActivity;
+import com.saliim.rekapkerja.activity.admin.adminstaff.StaffDetailActivity;
 import com.saliim.rekapkerja.model.getuser.ResponseGetUsers;
 
 import java.util.ArrayList;

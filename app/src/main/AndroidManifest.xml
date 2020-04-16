@@ -10,15 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name="com.saliim.rekapkerja.activity.admin.adminhome.UDKerjaanActivity"></activity>
-        <activity android:name="com.saliim.rekapkerja.activity.admin.adminhome.StaffChartFragment" />
-        <activity android:name="com.saliim.rekapkerja.activity.admin.adminhome.StaffDetailActivity" />
+        <activity android:name="com.saliim.rekapkerja.activity.admin.adminchart.StaffChartFragment" />
+        <activity android:name="com.saliim.rekapkerja.activity.admin.adminstaff.StaffDetailActivity" />
         <activity
             android:name="com.saliim.rekapkerja.activity.PengaturanActivity"
             android:label="Pengaturan Akun" />
         <activity
             android:name="com.saliim.rekapkerja.activity.admin.adminhome.TambahTaskActivity"
             android:label="Tambah Kerjaan" />
-        <activity android:name="com.saliim.rekapkerja.activity.admin.adminhome.StaffListFragment" />
+        <activity android:name="com.saliim.rekapkerja.activity.admin.adminstaff.StaffListFragment" />
         <activity android:name="com.saliim.rekapkerja.activity.admin.adminhome.AdminHomeFragment" />
         <activity android:name="com.saliim.rekapkerja.activity.staff.chart.ChartFragment" />
         <activity android:name="com.saliim.rekapkerja.activity.staff.home.HomeFragment" />

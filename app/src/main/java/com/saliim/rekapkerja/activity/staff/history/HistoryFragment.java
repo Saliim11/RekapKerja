@@ -2,14 +2,18 @@ package com.saliim.rekapkerja.activity.staff.history;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.saliim.rekapkerja.R;
@@ -18,7 +22,10 @@ import com.saliim.rekapkerja.adapter.ListSelesaiAdapter;
 import com.saliim.rekapkerja.model.kerjaanSelesai.ResponseListSelesai;
 import com.saliim.rekapkerja.network.ApiClient;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
+import java.util.stream.IntStream;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,9 +35,13 @@ public class HistoryFragment extends Fragment {
 
     private ArrayList<ResponseListSelesai> data = null;
 
-    private ArrayList<String> poin;
+    private String poins;
+    private int point;
+    private ArrayList<Integer> poin = new ArrayList<>();
+    private int sum = 0;
 
-    RecyclerView recyclerSelesai;
+    private RecyclerView recyclerSelesai;
+    private TextView txtTotalPoin;
 
     @Nullable
     @Override
@@ -41,13 +52,15 @@ public class HistoryFragment extends Fragment {
         return inflater.inflate(R.layout.history_fragment, container, false);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        txtTotalPoin = view.findViewById(R.id.txtTotalPoin);
         recyclerSelesai = view.findViewById(R.id.rc_list_selesai);
-        String id = LoginActivity.idUser;
 
+        String id = LoginActivity.idUser;
         getSelesai(id);
 
     }
@@ -66,7 +79,26 @@ public class HistoryFragment extends Fragment {
                         recyclerSelesai.setLayoutManager(new LinearLayoutManager(getActivity()));
                         recyclerSelesai.setAdapter(new ListSelesaiAdapter(getActivity(), data));
 
-                        poin.add(data.get(0).getPoinSelesai());
+                        for (ResponseListSelesai dataSelesai: data){
+                            poins = dataSelesai.getPoinSelesai();
+//                            Log.d("poinString", poins);
+
+                            point = Integer.parseInt(poins);
+                            Log.d("poinInteger", String.valueOf(point));
+
+                            poin.add(point);
+                            Log.d("poin2", poin.toString());
+
+                        }
+                        for (int i : poin){
+                            sum += i;
+                        }
+
+                        Log.d("total", String.valueOf(sum));
+                        String hasil = String.valueOf(sum);
+
+                        txtTotalPoin.setText(hasil);
+
                     }
                 }
             }

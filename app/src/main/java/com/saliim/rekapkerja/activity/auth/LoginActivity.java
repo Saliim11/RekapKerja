@@ -63,9 +63,15 @@ public class LoginActivity extends AppCompatActivity {
             passwordUser = SaveSharedPreference.getLoggedStatusString(getApplicationContext(), PASSWORD_PREF);
             levelUser = SaveSharedPreference.getLoggedStatusString(getApplicationContext(), LEVEL_PREF);
             kelasUser = SaveSharedPreference.getLoggedStatusString(getApplicationContext(), KELAS_PREF);
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
-            finish();
+
+            if (levelUser.equals("Pimpinan")){
+                startActivity(new Intent(getApplicationContext(), AdminActivity.class));
+                finish();
+            }else{
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
         }
     }
 
@@ -111,7 +117,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
 
                 } else {
-                    Toast.makeText(LoginActivity.this, "Gagal Login", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Periksa Kembali Username atau Password Anda", Toast.LENGTH_SHORT).show();
                 }
             }
 
