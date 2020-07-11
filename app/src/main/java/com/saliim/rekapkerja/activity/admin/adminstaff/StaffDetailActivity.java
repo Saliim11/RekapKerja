@@ -10,12 +10,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.saliim.rekapkerja.R;
 import com.saliim.rekapkerja.activity.admin.AdminActivity;
-import com.saliim.rekapkerja.activity.admin.adminhome.TambahTaskActivity;
+import com.saliim.rekapkerja.adapter.ListSelesaiAdapter;
 import com.saliim.rekapkerja.model.deleteuser.ResponseDeleteUser;
+import com.saliim.rekapkerja.model.kerjaanSelesai.ResponseListSelesai;
 import com.saliim.rekapkerja.network.ApiClient;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,6 +41,10 @@ public class StaffDetailActivity extends AppCompatActivity {
     TextView txtStaffLevel;
     @BindView(R.id.btnPecat)
     Button btnPecat;
+    @BindView(R.id.rc_staff_history)
+    RecyclerView rcStaffHistory;
+
+    private ArrayList<ResponseListSelesai> data = null;
 
     String idStaff;
 
@@ -57,6 +66,32 @@ public class StaffDetailActivity extends AppCompatActivity {
         txtUserStaff.setText("Username : " + userStaff);
         txtKelasStaff.setText("Kelas : " + kelasStaff);
         txtStaffLevel.setText("Level : " + levelStaff);
+
+        getHistoryStaff(idStaff);
+    }
+
+    private void getHistoryStaff(String id) {
+        ApiClient.service.responseListSelesai(id).enqueue(new Callback<ArrayList<ResponseListSelesai>>() {
+            @Override
+            public void onResponse(Call<ArrayList<ResponseListSelesai>> call, Response<ArrayList<ResponseListSelesai>> response) {
+                if (response.code() == 200){
+                    data = response.body();
+
+                    if (data == null){
+                        Toast.makeText(StaffDetailActivity.this, "data kosong", Toast.LENGTH_SHORT).show();
+                    }else{
+                        rcStaffHistory.setHasFixedSize(true);
+                        rcStaffHistory.setLayoutManager(new LinearLayoutManager(StaffDetailActivity.this));
+                        rcStaffHistory.setAdapter(new ListSelesaiAdapter(StaffDetailActivity.this, data));
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<ResponseListSelesai>> call, Throwable t) {
+
+            }
+        });
     }
 
     @OnClick(R.id.btnPecat)
